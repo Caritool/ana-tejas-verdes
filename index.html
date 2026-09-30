@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ana la de Tejas Verdes</title>
+  <meta name="description" content="Una presentación sobre Ana la de Tejas Verdes, de Lucy Maud Montgomery: su origen, su historia, su lectura profunda y su vigencia.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#datos">Saltar al contenido</a>
+
+  <canvas class="hojas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <nav class="menu" aria-label="Secciones">
+      <ul>
+        <li><a href="#datos">Datos editoriales</a></li>
+        <li><a href="#historia">La historia</a></li>
+        <li><a href="#profundo">Lo profundo</a></li>
+        <li><a href="#hoy">Ana hoy</a></li>
+      </ul>
+      <span class="menu__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="menu__progress" aria-hidden="true"><span></span></div>
+  </header>
+
+  <main>
+    <!-- HEADER / portada -->
+    <section class="hero" id="inicio" aria-labelledby="titulo">
+      <blockquote class="hero__quote" data-reveal>
+        <p><span class="marker">"¿No es agradable pensar que mañana será un nuevo día sin errores todavía?"</span></p>
+      </blockquote>
+
+      <h1 class="hero__title" id="titulo" data-split>
+        <span class="line">Ana la de</span>
+        <span class="line">Tejas Verdes</span>
+      </h1>
+
+      <svg class="hero__swash" viewBox="0 0 400 40" aria-hidden="true">
+        <path d="M6 28 C 90 6, 170 38, 250 18 S 360 10, 394 24" />
+      </svg>
+
+      <a class="hero__hint" href="#datos">
+        <span>Desliza</span>
+        <svg viewBox="0 0 24 36" aria-hidden="true"><path d="M12 2 C 19 9, 19 21, 12 34 C 5 21, 5 9, 12 2 Z" /><path d="M12 6 V 30" /></svg>
+      </a>
+    </section>
+
+    <hr class="divider" data-reveal>
+
+    <!-- DATOS EDITORIALES -->
+    <section class="datos" id="datos" aria-labelledby="datos-titulo">
+      <figure class="datos__autora" data-reveal="left" data-tilt>
+        <img src="assets/img/montgomery.png" alt="Retrato de Lucy Maud Montgomery con sombrero de ala ancha" width="177" height="226" data-parallax="0.06">
+      </figure>
+
+      <div class="datos__texto">
+        <h2 class="display" id="datos-titulo" data-split>Lucy Maud Montgomery</h2>
+
+        <p class="justify" data-reveal>
+          Lucy Maud nació en 1874 en Canadá y plasmó su propia experiencia en la obra, ya que creció como hija
+          única (casi huérfana) criada por abuelos estrictos tras la muerte de su madre y el abandono de su padre.
+          La inspiración provino de la vida cotidiana. Montgomery llevaba un cuaderno en el bolsillo de su delantal
+          donde anotaba ideas. La chispa de la novela surgió al releer una
+          <button class="nota-trigger" type="button" aria-expanded="false" aria-controls="vieja-nota">vieja nota</button>:
+        </p>
+
+        <div class="nota" id="vieja-nota" hidden>
+          <div class="nota__pliegue">
+            <div class="nota__papel">
+              <p>"Una pareja de ancianos solicitó adoptar un niño a un orfanato, pero por un error, les enviaron a una niña".</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="justify" data-reveal>
+          Tras ser rechazada por varias editoriales en 1905, Montgomery rescató el manuscrito en 1907 y se publicó
+          con éxito rotundo en 1908, marcando su carrera literaria.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" data-reveal>
+
+    <!-- LA HISTORIA -->
+    <section class="historia" id="historia" aria-labelledby="historia-titulo">
+      <h2 class="sr-only" id="historia-titulo">La historia</h2>
+
+      <div class="historia__intro">
+        <div class="historia__texto justify" data-reveal>
+          <p>
+            La historia sigue a Ana Shirley, una niña imaginativa y locuaz de 11 años que llega por equivocación a
+            la granja "Tejas Verdes" con los hermanos Matthew y Marilla Cuthbert, ganándose el corazón de ellos y
+            del pueblo de Avonlea.
+          </p>
+          <p>
+            La verdadera genialidad de la obra es que se articula sobre un trasfondo oscuro. Como señala la
+            escritora Margaret Atwood en su epílogo, este no es un simple y complaciente "libro de chicas".
+          </p>
+        </div>
+
+        <figure class="historia__edicion" data-reveal="zoom" data-tilt>
+          <img src="assets/img/primera-edicion.jpg" alt="Portada de la primera edición de Anne of Green Gables (1908), con un retrato ovalado de una joven pelirroja" width="288" height="429" data-parallax="-0.05">
+        </figure>
+
+        <blockquote class="historia__cita" data-reveal="right">
+          <p>"Puede que Ana sea la huérfana que todos llevamos dentro"</p>
+          <footer>— Atwood, M.</footer>
+        </blockquote>
+      </div>
+
+      <hr class="divider" data-reveal>
+
+      <div class="historia__abismo">
+        <figure class="ilustracion ilustracion--tejado" data-reveal="left" data-tilt>
+          <img src="assets/img/ana-tejado.png" alt="Acuarela de Ana caminando con los brazos abiertos sobre la cumbrera de un tejado verde, contra un cielo nublado" width="360" height="467" data-parallax="0.05">
+        </figure>
+
+        <p class="justify" data-reveal="right">
+          La novela expone los peligros reales e inminentes de la orfandad en el siglo XIX y principios del XX.
+          Nos obliga a mirar el abismo del cual Ana acaba de escapar: si el "error" de enviarla a Tejas Verdes no
+          hubiera ocurrido, su destino ineludible en el mundo real habría sido la marginación absoluta. Peor aún,
+          como advierte Atwood, habría corrido el gravísimo peligro de acabar deshonrada y violada por los hombres
+          de las familias de acogida, un destino silenciado pero habitual para las niñas huérfanas de la época.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" data-reveal>
+
+    <!-- LO PROFUNDO -->
+    <section class="profundo" id="profundo" aria-labelledby="profundo-titulo">
+      <h2 class="sr-only" id="profundo-titulo">Lo profundo</h2>
+
+      <div class="retorica">
+        <h3 class="display" data-split>La Retórica del Personaje: Comunicación Narrativa y Focalización</h3>
+
+        <div class="retorica__grid">
+          <figure class="ilustracion ilustracion--carruaje" data-reveal="left" data-tilt>
+            <img src="assets/img/ana-carruaje.png" alt="Acuarela de Ana y Marilla en un carruaje, rodeadas de gaviotas en un cielo anaranjado" width="360" height="501" data-parallax="0.05">
+          </figure>
+
+          <p class="retorica__punto retorica__punto--1" data-reveal>
+            <strong>El reto del narrador adulto:</strong> Nikolajeva explica que en la literatura infantil existe una
+            discrepancia ineludible, pues la voz narrativa pertenece a un adulto mientras que el protagonista es un niño.
+          </p>
+          <p class="retorica__punto retorica__punto--2" data-reveal="right">
+            <strong>Juego con las expectativas:</strong> En el primer capítulo de la novela, el narrador retrasa
+            deliberadamente la aparición de la protagonista.
+          </p>
+          <p class="retorica__punto retorica__punto--3" data-reveal="right">
+            <strong>Focalización interna:</strong> Conforme avanza el texto, el narrador adulto focaliza internamente
+            a Ana, disolviendo la brecha entre el personaje y el lector.
+          </p>
+        </div>
+      </div>
+
+      <hr class="divider" data-reveal>
+
+      <div class="doble">
+        <h3 class="display" data-split>Hay una doble naturaleza</h3>
+
+        <div class="flip" data-reveal="zoom">
+          <div class="flip__inner">
+            <article class="flip__cara flip__cara--a">
+              <img src="assets/img/ana-dormida.png" alt="Acuarela de Ana dormida sobre una cama y, debajo, una ventana con flores y su sombrero de paja" width="240" height="392">
+              <div class="flip__texto">
+                <h4>Aproximación mimética</h4>
+                <p>
+                  Ana es tratada como un individuo de la vida real. Como lectores, exigimos que su comportamiento sea
+                  consistente con su psicología y nivel cognoscitivo. Su manera casi eufórica de hablar, su
+                  hiperactividad imaginativa y su desesperada necesidad de agradar, son leídas miméticamente como
+                  respuestas de la mente de una niña que ha sufrido la negligencia y la orfandad en el siglo XIX.
+                </p>
+              </div>
+            </article>
+            <article class="flip__cara flip__cara--b">
+              <img src="assets/img/ana-flores.png" alt="Acuarela de Ana recostada entre flores blancas, riendo, con su sombrero de paja a un lado" width="221" height="285">
+              <div class="flip__texto">
+                <h4>Aproximación semiótica</h4>
+                <p>
+                  Ana es una construcción textual cerrada que no tiene referentes en el mundo real. Bajo el modelo
+                  actancial de Greimas, Ana deja de ser una niña traumatizada para convertirse en el "Sujeto" que
+                  ejecuta una acción en busca de un "Objeto" (el hogar). Personajes como Matthew y Marilla cumplen el
+                  papel de "Ayudantes", mientras que los prejuicios de la sociedad son el "Oponente".
+                </p>
+              </div>
+            </article>
+          </div>
+          <button class="flip__boton" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66" /><path d="M20 4v5h-5" /></svg>
+            <span>Voltear la tarjeta</span>
+          </button>
+        </div>
+      </div>
+
+      <hr class="divider" data-reveal>
+
+      <div class="evolucion">
+        <h3 class="display" data-split>Evolución tipológica</h3>
+
+        <ol class="timeline">
+          <li class="fase">
+            <span class="fase__icono">
+              <svg viewBox="0 0 80 44" role="img" aria-label="Sombrero de paja">
+                <ellipse cx="40" cy="33" rx="37" ry="9" fill="#b9854f"/>
+                <ellipse cx="40" cy="31" rx="33" ry="6.5" fill="#c99762"/>
+                <path d="M21 31 C 21 14, 59 14, 59 31 Z" fill="#b9854f"/>
+                <path d="M21 26 C 30 29, 50 29, 59 26 L 59.5 31 C 50 34, 30 34, 20.5 31 Z" fill="#232a4a"/>
+                <path d="M26 20 C 32 16, 46 16, 52 19" stroke="#dcae78" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="fase__texto"><strong>Fase 1: Ironía</strong><span>Ana huérfana y sometida al mundo adulto.</span></div>
+          </li>
+          <li class="fase">
+            <span class="fase__icono"><img src="assets/img/icono-libro.png" alt="" width="470" height="400"></span>
+            <div class="fase__texto"><strong>Fase 2: Mimética</strong><span>Estudiante brillante y modelo a seguir.</span></div>
+          </li>
+          <li class="fase">
+            <span class="fase__icono"><img src="assets/img/icono-flor.png" alt="" width="376" height="354"></span>
+            <div class="fase__texto"><strong>Fase 3: El mundo verde</strong><span>Conexión con la naturaleza.</span></div>
+          </li>
+          <li class="fase">
+            <span class="fase__icono">
+              <svg viewBox="0 0 60 80" role="img" aria-label="Vestido de cuadros en un gancho">
+                <defs>
+                  <pattern id="cuadros" width="8" height="8" patternUnits="userSpaceOnUse">
+                    <rect width="8" height="8" fill="#f4f1f7"/>
+                    <rect width="4" height="8" fill="#3b3470" opacity=".55"/>
+                    <rect width="8" height="4" fill="#3b3470" opacity=".55"/>
+                  </pattern>
+                </defs>
+                <path d="M30 3 c 3 0 4 3 2 5 l -2 2" stroke="#6b6b6b" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+                <path d="M30 10 L 18 18 M30 10 L 42 18" stroke="#6b6b6b" stroke-width="1.4" stroke-linecap="round"/>
+                <ellipse cx="13" cy="28" rx="6" ry="11" transform="rotate(18 13 28)" fill="#d2a045"/>
+                <ellipse cx="47" cy="28" rx="6" ry="11" transform="rotate(-18 47 28)" fill="#d2a045"/>
+                <path d="M9 38 l -2 8 M51 38 l 2 8" stroke="#d2a045" stroke-width="5" stroke-linecap="round"/>
+                <path d="M18 18 H42 L 40 40 L 52 76 H 8 L 20 40 Z" fill="url(#cuadros)" stroke="#2b2658" stroke-width="1.2" stroke-linejoin="round"/>
+                <path d="M20 40 H40" stroke="#2b2658" stroke-width="1.6"/>
+              </svg>
+            </span>
+            <div class="fase__texto"><strong>Fase 4: Encogimiento</strong><span>La necesidad de encajar con la norma.</span></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <hr class="divider" data-reveal>
+
+    <!-- ANA HOY -->
+    <section class="hoy" id="hoy" aria-labelledby="hoy-titulo">
+      <h2 class="display" id="hoy-titulo" data-split>Ana hoy</h2>
+
+      <p class="hoy__intro" data-reveal>
+        La historia de Ana sigue estudiándose, leyéndose (su traducción china tiene 198.000 palabras) y siendo
+        analizada por la crítica feminista contemporánea. Formatos múltiples: su rentabilidad y encanto han generado
+        más de 40 adaptaciones.
+      </p>
+
+      <div class="carrusel" data-reveal="zoom" aria-roledescription="carrusel" aria-label="Adaptaciones de Ana la de Tejas Verdes">
+        <div class="carrusel__escenario"></div>
+        <button class="carrusel__flecha carrusel__flecha--prev" type="button" aria-label="Adaptación anterior">
+          <svg viewBox="0 0 80 44" aria-hidden="true"><path d="M74 22 H 16 M 34 6 L 12 22 L 34 38" /></svg>
+        </button>
+        <button class="carrusel__flecha carrusel__flecha--next" type="button" aria-label="Siguiente adaptación">
+          <svg viewBox="0 0 80 44" aria-hidden="true"><path d="M6 22 H 64 M 46 6 L 68 22 L 46 38" /></svg>
+        </button>
+        <p class="carrusel__contador" aria-live="polite"></p>
+        <noscript><p>Activa JavaScript para ver el carrusel de adaptaciones.</p></noscript>
+      </div>
+    </section>
+
+    <hr class="divider" data-reveal>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pie">
+    <svg class="pie__rama" viewBox="0 0 600 90" aria-hidden="true">
+      <path class="pie__tallo" d="M10 70 C 120 60, 180 30, 300 44 S 480 70, 590 30" />
+      <path class="pie__tallo pie__tallo--fino" d="M170 44 C 180 26, 196 18, 214 14" />
+      <path class="pie__tallo pie__tallo--fino" d="M420 58 C 432 76, 448 82, 468 84" />
+      <g class="pie__hojas">
+        <path style="--i:0" d="M60 64 c -8 -16 4 -26 16 -24 c 0 12 -6 22 -16 24 Z" />
+        <path style="--i:1" d="M214 14 c 4 -12 18 -14 26 -8 c -6 10 -16 12 -26 8 Z" />
+        <path style="--i:2" d="M262 44 c -6 -14 6 -24 18 -20 c -2 12 -8 18 -18 20 Z" />
+        <path style="--i:3" d="M360 56 c 2 14 16 18 24 10 c -6 -8 -14 -12 -24 -10 Z" />
+        <path style="--i:4" d="M468 84 c 10 -2 18 -12 14 -22 c -10 2 -16 10 -14 22 Z" />
+        <path style="--i:5" d="M540 40 c -4 -14 8 -22 20 -18 c -2 12 -10 18 -20 18 Z" />
+      </g>
+    </svg>
+
+    <blockquote class="pie__cita">
+      <p data-words>"No he cambiado nada, en realidad. Simplemente me he podado y ramificado. Mi verdadero yo, aquí atrás, sigue siendo el mismo. No importará adónde vaya ni cuánto cambie por fuera; en el fondo, siempre seré tu pequeña Anne, que os amará a ti, a Matthew y a la querida Green Gables cada día de su vida."</p>
+      <footer>— Anne Shirley</footer>
+    </blockquote>
+
+    <div class="pie__creditos">
+      <p><em>Anne of Green Gables</em> · Lucy Maud Montgomery, 1908</p>
+      <a class="pie__arriba" href="#inicio">Volver al inicio <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+</body>
+</html>
