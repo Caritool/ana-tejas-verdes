@@ -162,17 +162,6 @@ main > section, .pie {
   padding: clamp(40px, 7vw, 88px) var(--gutter);
 }
 
-.divider {
-  border: 0; margin: 0;
-  width: 100%;
-  height: clamp(6px, 0.8vw, 9px);
-  background: var(--ink);
-  transform-origin: left;
-}
-
-/* Los separadores dentro de una sección salen a sangre, como en el mockup. */
-main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
-
 .ilustracion { margin: 0; }
 .ilustracion img { border-radius: 26px; width: 100%; }
 
@@ -215,9 +204,10 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
   grid-column: 1; grid-row: 2 / 4;
   margin: 0;
   font-style: italic;
-  font-size: clamp(1.15rem, 1rem + 0.7vw, 1.55rem);
-  line-height: 1.55;
+  font-size: clamp(1.45rem, 1.05rem + 1.35vw, 2.2rem);
+  line-height: 1.5;
   max-width: 19ch;
+  text-align: left;
 }
 .marker {
   background-image: linear-gradient(var(--cream), var(--cream));
@@ -314,8 +304,6 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
 /* ==========================================================================
    La historia
    ========================================================================== */
-.historia { padding-bottom: 0; }
-.historia + .divider { margin-top: clamp(40px, 7vw, 88px); }
 
 .historia__intro {
   display: grid;
@@ -349,7 +337,6 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(24px, 7vw, 110px);
   align-items: center;
-  padding-top: clamp(40px, 7vw, 88px);
 }
 .ilustracion--tejado { max-width: 400px; justify-self: center; }
 .historia__abismo p { max-width: 34ch; justify-self: center; }
@@ -357,9 +344,7 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
 /* ==========================================================================
    Lo profundo
    ========================================================================== */
-.profundo { padding-bottom: 0; }
-.profundo > div { padding-block: clamp(40px, 7vw, 88px); }
-.profundo > div:first-of-type { padding-top: 0; }
+.profundo > div + div { margin-top: clamp(56px, 8vw, 104px); }
 
 .profundo h3.display {
   font-size: clamp(1.9rem, 1.2rem + 2.6vw, 3rem);
@@ -499,18 +484,30 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
   user-select: none;
 }
 
+/* El fondo de cada tarjeta es su propio póster desenfocado: la tarjeta toma
+   la paleta de la imagen sin tener que calcularla. */
 .slide {
   grid-area: 1 / 1;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: var(--night);
-  color: #f4f2ff;
+  color: #fff;
   padding: 18px 18px 14px;
   display: flex; flex-direction: column; align-items: center;
-  box-shadow: 0 28px 50px -28px rgb(34 31 76 / 0.8);
+  box-shadow: 0 28px 50px -26px rgb(60 30 15 / 0.65);
   transition: transform .75s var(--ease-spring), opacity .5s, filter .5s;
   transform-origin: 50% 90%;
 }
-.slide__imagen { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #312d68; }
-.slide__caption { margin: 14px 0 0; line-height: 1.45; font-size: 0.98rem; }
+.slide::before, .slide::after { content: ""; position: absolute; z-index: -1; }
+.slide::before {
+  inset: -40px;
+  background: var(--poster, none) center / cover;
+  filter: blur(26px) saturate(1.35);
+}
+.slide::after { inset: 0; background: linear-gradient(rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.12) 62%, rgb(0 0 0 / 0.58)); }
+.slide__imagen { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; box-shadow: 0 10px 24px -10px rgb(0 0 0 / 0.55); }
+.slide__caption { margin: 14px 0 0; line-height: 1.45; font-size: 0.98rem; text-shadow: 0 1px 8px rgb(0 0 0 / 0.55); }
 .slide__caption span { display: block; }
 
 .slide__placeholder {
@@ -540,8 +537,12 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
   z-index: 5;
   transition: transform .35s var(--ease-spring);
 }
-.carrusel__flecha path { fill: none; stroke: var(--blush); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
-.carrusel__flecha:hover path { stroke: var(--blush-deep); }
+.flecha__trazo { fill: none; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+.flecha__hoja { fill: var(--leaf-ochre); stroke: #4f2413; stroke-width: 1.6; stroke-linejoin: round; transform-box: fill-box; transform-origin: bottom; transition: rotate .45s var(--ease-spring); }
+.carrusel__flecha--next .flecha__hoja { transform-origin: 0% 100%; }
+.carrusel__flecha--prev .flecha__hoja { transform-origin: 100% 100%; }
+.carrusel__flecha:hover .flecha__hoja { rotate: -18deg; }
+.carrusel__flecha--prev:hover .flecha__hoja { rotate: 18deg; }
 .carrusel__flecha--next { right: -46px; }
 .carrusel__flecha--prev { left: -46px; }
 .carrusel__flecha--next:hover { transform: translateX(6px) rotate(-6deg) scale(1.08); }
@@ -573,8 +574,31 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
 }
 .pie__cita footer { margin-top: 0.4em; font-weight: 700; }
 
+.pie__fuentes {
+  margin: clamp(48px, 8vw, 96px) auto 0;
+  max-width: 760px;
+  text-align: left;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.pie__fuentes h2 {
+  margin: 0 0 8px;
+  font-size: 0.78rem; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.pie__fuentes ul { margin: 0; padding-left: 1.1em; }
+.pie__fuentes + .pie__fuentes { margin-top: 28px; }
+/* APA: sangría francesa, sin viñeta. */
+.pie__referencias { list-style: none; padding-left: 0 !important; }
+.pie__referencias li { padding-left: 2em; text-indent: -2em; }
+.pie__fuentes li + li { margin-top: 4px; }
+.pie__fuentes li::marker { color: var(--leaf-orange); }
+.pie__fuentes a { color: inherit; text-decoration-color: var(--leaf-orange); text-underline-offset: 3px; }
+.pie__fuentes a:hover { color: var(--leaf-rust); }
+
 .pie__creditos {
-  margin-top: clamp(48px, 8vw, 96px);
+  margin-top: 28px;
   padding-top: 20px;
   border-top: 3px solid var(--sage);
   display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center;
@@ -599,7 +623,6 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
 .js [data-reveal="left"] { translate: -60px 0; rotate: -2deg; }
 .js [data-reveal="right"] { translate: 60px 0; rotate: 2deg; }
 .js [data-reveal="zoom"] { translate: 0 20px; scale: 0.85; }
-.js .divider[data-reveal] { opacity: 1; translate: none; scale: 0 1; transition: scale 1.2s var(--ease-out); }
 .js [data-reveal].is-in { opacity: 1; translate: none; scale: none; rotate: none; }
 
 /* Portada */
@@ -673,7 +696,7 @@ main section .divider { width: 100vw; margin-inline: calc(50% - 50vw); }
   }
   .hero__title { grid-column: 1; grid-row: 2; }
   .hero__swash { grid-column: 1; grid-row: 3; }
-  .hero__quote { grid-column: 1; grid-row: 4; justify-self: center; margin-top: 18px; }
+  .hero__quote { grid-column: 1; grid-row: 4; justify-self: start; margin-top: 18px; }
   .hero__hint { grid-row: 6; }
 
   .datos { grid-template-columns: 1fr; }

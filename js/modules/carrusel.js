@@ -25,6 +25,9 @@ export function carrusel({ alPasar }) {
     el.setAttribute("aria-label", `${i + 1} de ${n}`);
 
     if (a.imagen) {
+      // Absoluta: un url() relativo dentro de una variable se resolvería
+      // contra css/, no contra la página.
+      el.style.setProperty("--poster", `url("${new URL(a.imagen, document.baseURI).href}")`);
       const img = document.createElement("img");
       img.className = "slide__imagen";
       img.src = a.imagen;

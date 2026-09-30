@@ -56,7 +56,6 @@
       </a>
     </section>
 
-    <hr class="divider" data-reveal>
 
     <!-- DATOS EDITORIALES -->
     <section class="datos" id="datos" aria-labelledby="datos-titulo">
@@ -90,7 +89,6 @@
       </div>
     </section>
 
-    <hr class="divider" data-reveal>
 
     <!-- LA HISTORIA -->
     <section class="historia" id="historia" aria-labelledby="historia-titulo">
@@ -119,7 +117,6 @@
         </blockquote>
       </div>
 
-      <hr class="divider" data-reveal>
 
       <div class="historia__abismo">
         <figure class="ilustracion ilustracion--tejado" data-reveal="left" data-tilt>
@@ -136,7 +133,6 @@
       </div>
     </section>
 
-    <hr class="divider" data-reveal>
 
     <!-- LO PROFUNDO -->
     <section class="profundo" id="profundo" aria-labelledby="profundo-titulo">
@@ -165,7 +161,6 @@
         </div>
       </div>
 
-      <hr class="divider" data-reveal>
 
       <div class="doble">
         <h3 class="display" data-split>Hay una doble naturaleza</h3>
@@ -204,7 +199,6 @@
         </div>
       </div>
 
-      <hr class="divider" data-reveal>
 
       <div class="evolucion">
         <h3 class="display" data-split>Evolución tipológica</h3>
@@ -255,7 +249,6 @@
       </div>
     </section>
 
-    <hr class="divider" data-reveal>
 
     <!-- ANA HOY -->
     <section class="hoy" id="hoy" aria-labelledby="hoy-titulo">
@@ -270,17 +263,24 @@
       <div class="carrusel" data-reveal="zoom" aria-roledescription="carrusel" aria-label="Adaptaciones de Ana la de Tejas Verdes">
         <div class="carrusel__escenario"></div>
         <button class="carrusel__flecha carrusel__flecha--prev" type="button" aria-label="Adaptación anterior">
-          <svg viewBox="0 0 80 44" aria-hidden="true"><path d="M74 22 H 16 M 34 6 L 12 22 L 34 38" /></svg>
+          <svg viewBox="0 0 80 44" aria-hidden="true">
+            <defs><linearGradient id="otono-ant" x1="0" x2="80" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b8361e"/><stop offset=".55" stop-color="#d9622b"/><stop offset="1" stop-color="#e0a13a"/></linearGradient></defs>
+            <path class="flecha__trazo" stroke="url(#otono-ant)" d="M74 24 H 16 M 34 8 L 12 24 L 34 40" />
+            <path class="flecha__hoja" d="M62 22 C 66 11, 58 3, 50 3 C 48 11, 54 19, 62 22 Z M62 22 L 52 7" />
+          </svg>
         </button>
         <button class="carrusel__flecha carrusel__flecha--next" type="button" aria-label="Siguiente adaptación">
-          <svg viewBox="0 0 80 44" aria-hidden="true"><path d="M6 22 H 64 M 46 6 L 68 22 L 46 38" /></svg>
+          <svg viewBox="0 0 80 44" aria-hidden="true">
+            <defs><linearGradient id="otono-sig" x1="0" x2="80" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e0a13a"/><stop offset=".45" stop-color="#d9622b"/><stop offset="1" stop-color="#b8361e"/></linearGradient></defs>
+            <path class="flecha__trazo" stroke="url(#otono-sig)" d="M6 24 H 64 M 46 8 L 68 24 L 46 40" />
+            <path class="flecha__hoja" d="M18 22 C 14 11, 22 3, 30 3 C 32 11, 26 19, 18 22 Z M18 22 L 28 7" />
+          </svg>
         </button>
         <p class="carrusel__contador" aria-live="polite"></p>
         <noscript><p>Activa JavaScript para ver el carrusel de adaptaciones.</p></noscript>
       </div>
     </section>
 
-    <hr class="divider" data-reveal>
   </main>
 
   <!-- FOOTER -->
@@ -303,6 +303,25 @@
       <p data-words>"No he cambiado nada, en realidad. Simplemente me he podado y ramificado. Mi verdadero yo, aquí atrás, sigue siendo el mismo. No importará adónde vaya ni cuánto cambie por fuera; en el fondo, siempre seré tu pequeña Anne, que os amará a ti, a Matthew y a la querida Green Gables cada día de su vida."</p>
       <footer>— Anne Shirley</footer>
     </blockquote>
+
+    <section class="pie__fuentes" aria-labelledby="referencias-titulo">
+      <h2 id="referencias-titulo">Referencias</h2>
+      <ul class="pie__referencias">
+        <li>Komrakova, E. (s.f.). <em>Illustrations for the novel Anne of Green Gables</em> [Ilustraciones]. <a href="https://www.behance.net/gallery/210185015/Illustrations-for-the-novel-Anne-of-Green-Gables">Behance</a>.</li>
+        <li>Montgomery, L. M. (2021). <em>Ana la de Tejas Verdes</em>. Blanco y Negro Editorial. (Obra original publicada en 1908)</li>
+        <li>Nikolajeva, M. (2014). <em>Retórica del personaje en la literatura para niños</em> (I. Padilla, Trad.). Fondo de Cultura Económica. (Obra original publicada en 2002)</li>
+      </ul>
+    </section>
+
+    <section class="pie__fuentes" aria-labelledby="creditos-titulo">
+      <h2 id="creditos-titulo">Créditos</h2>
+      <ul>
+        <li>Ilustraciones en acuarela: <a href="https://www.behance.net/gallery/210185015/Illustrations-for-the-novel-Anne-of-Green-Gables">Ekaterina Komrakova</a>, <em>Illustrations for the novel Anne of Green Gables</em> (Behance).</li>
+        <li>Retrato de L. M. Montgomery y portada de la primera edición (1908): Wikimedia Commons, dominio público (<a href="https://commons.wikimedia.org/wiki/File:Page088_CanadianSingersAndTheirSongs_MacDonaldLucyMaud.jpg">retrato</a>, <a href="https://commons.wikimedia.org/wiki/File:Montgomery_Anne_of_Green_Gables.jpg">portada</a>).</li>
+        <li>Póster de 1919: <a href="https://commons.wikimedia.org/wiki/File:Anne_of_Green_Gables_(1919_film).jpg">Wikimedia Commons</a>, dominio público. Los demás pósters pertenecen a sus respectivos titulares.</li>
+        <li>Íconos del libro y la flor: Canva.</li>
+      </ul>
+    </section>
 
     <div class="pie__creditos">
       <p><em>Anne of Green Gables</em> · Lucy Maud Montgomery, 1908</p>

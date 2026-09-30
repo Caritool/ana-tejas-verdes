@@ -7,7 +7,6 @@ export function revelar(selector, { movimientoReducido }) {
 
   // Escalonado entre hermanos que entran juntos.
   for (const el of elementos) {
-    if (el.classList.contains("divider")) continue;
     const hermanos = [...el.parentElement.children].filter((h) => h.matches("[data-reveal]"));
     const i = hermanos.indexOf(el);
     if (i > 0) el.style.setProperty("--delay", `${i * 110}ms`);
