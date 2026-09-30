@@ -73,7 +73,7 @@
     <!-- DATOS EDITORIALES -->
     <section class="datos" id="datos" aria-labelledby="datos-titulo">
       <figure class="datos__autora" data-reveal="left" data-tilt>
-        <img src="assets/img/montgomery.webp" alt="Retrato de Lucy Maud Montgomery con anteojos, sombrero oscuro de ala ancha y velo" width="601" height="848" data-parallax="0.06">
+        <img src="assets/img/montgomery.webp" alt="Retrato de Lucy Maud Montgomery con anteojos y sombrero oscuro de ala ancha" width="601" height="828" data-parallax="0.06">
       </figure>
 
       <div class="datos__texto">
@@ -193,7 +193,7 @@
               </div>
             </article>
             <article class="flip__cara flip__cara--b">
-              <img src="assets/img/ana-flores.webp" alt="Acuarela de Ana recostada entre flores blancas, riendo, con su sombrero de paja a un lado" width="709" height="903">
+              <img src="assets/img/ana-flores.webp" alt="Acuarela de Ana recostada entre flores blancas, riendo, con su sombrero de paja a un lado" width="697" height="900">
               <div class="flip__texto">
                 <h4>Aproximación semiótica</h4>
                 <p>
@@ -219,12 +219,32 @@
         <ol class="timeline">
           <li class="fase">
             <span class="fase__icono">
-              <svg viewBox="0 0 80 44" role="img" aria-label="Sombrero de paja">
-                <ellipse cx="40" cy="33" rx="37" ry="9" fill="#b9854f"/>
-                <ellipse cx="40" cy="31" rx="33" ry="6.5" fill="#c99762"/>
-                <path d="M21 31 C 21 14, 59 14, 59 31 Z" fill="#b9854f"/>
-                <path d="M21 26 C 30 29, 50 29, 59 26 L 59.5 31 C 50 34, 30 34, 20.5 31 Z" fill="#232a4a"/>
-                <path d="M26 20 C 32 16, 46 16, 52 19" stroke="#dcae78" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <svg viewBox="0 0 100 104" role="img" aria-label="Sombrero de paja con lazo verde">
+                <defs>
+                  <filter id="acuarela-sombrero" x="-5%" y="-5%" width="110%" height="110%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="4" result="ruido"/>
+                    <feDisplacementMap in="SourceGraphic" in2="ruido" scale="2.2" result="borde"/>
+                    <feTurbulence type="fractalNoise" baseFrequency="2.2" numOctaves="1" seed="9" result="grano"/>
+                    <feColorMatrix in="grano" type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.22  0 0 0 0 0.1  0 0 0 0.22 -0.02" result="granoColor"/>
+                    <feComposite in="granoColor" in2="borde" operator="in" result="granoDentro"/>
+                    <feMerge><feMergeNode in="borde"/><feMergeNode in="granoDentro"/></feMerge>
+                  </filter>
+                </defs>
+                <g filter="url(#acuarela-sombrero)">
+                  <circle cx="50" cy="46" r="41" fill="#e7b684"/>
+                  <circle cx="50" cy="46" r="41" fill="none" stroke="#d29a63" stroke-width="1.4" opacity=".7"/>
+                  <path d="M74.0 45.3L76.4 46.6M72.8 53.4L74.5 55.3M69.8 59.2L71.3 61.8M66.3 63.1L67.3 66.1M60.4 67.0L60.4 70.0M53.4 69.0L52.5 71.4M44.9 68.8L42.9 71.8M39.3 66.8L37.0 68.4M32.1 61.5L28.4 62.9M28.2 55.8L25.1 55.8M26.1 47.7L23.7 46.6M26.5 41.2L24.2 39.4M27.8 37.1L26.1 35.1M31.9 30.7L30.2 27.5M37.0 26.5L36.4 23.2M45.2 23.2L45.9 20.3M52.0 22.8L53.5 20.7M57.2 23.8L59.2 21.9M65.5 28.2L68.4 27.0M69.4 32.3L72.7 31.6M72.9 39.0L75.8 39.4M79.0 47.3L82.2 49.0M78.4 51.6L81.1 53.7M75.6 59.2L78.0 62.2M71.0 65.4L71.8 68.3M64.6 70.3L64.4 73.0M60.6 72.2L60.4 75.8M55.1 73.7L54.0 76.8M48.6 74.1L46.9 77.2M38.6 71.9L35.9 74.0M32.1 68.1L29.2 69.2M27.7 64.0L24.3 64.7M24.2 58.8L20.9 58.6M21.5 51.2L17.6 50.3M21.0 46.1L17.8 44.6M21.4 41.2L18.5 39.1M24.6 32.3L22.2 29.2M29.3 26.3L28.6 23.4M33.1 23.1L32.5 19.7M37.7 20.5L37.9 17.3M45.0 18.3L46.1 15.8M51.5 17.9L53.2 14.7M58.7 19.2L60.9 17.2M66.1 22.6L69.4 20.6M70.4 26.0L73.5 25.1M75.8 33.1L79.7 32.9M78.5 40.7L82.3 41.6M84.0 44.8L86.9 46.5M83.4 52.1L86.6 54.6M80.0 61.6L81.2 64.2M78.5 64.0L79.6 66.8M73.8 69.5L74.5 72.8M66.6 74.8L66.2 77.8M63.0 76.5L62.4 79.7M54.3 78.7L52.8 81.9M44.0 78.5L41.6 81.3M39.4 77.3L36.7 79.7M32.2 74.1L29.5 75.0M25.7 69.0L21.9 70.1M21.3 63.8L17.4 64.0M19.2 59.9L15.9 59.5M17.3 54.9L13.7 54.0M16.1 48.3L13.7 46.7M16.4 40.7L14.4 38.5M18.6 33.4L17.2 30.9M21.0 28.8L19.9 26.1M25.7 22.9L25.0 19.8M30.8 18.8L30.4 14.9M40.1 14.5L41.1 11.7M45.1 13.4L46.5 10.5M52.8 13.1L54.8 11.0M62.3 15.3L65.4 12.5M66.8 17.3L69.9 15.8M71.0 20.1L73.9 19.4M77.0 25.9L80.2 25.8M81.7 34.2L84.7 35.0M82.6 36.7L86.7 37.5M88.0 46.2L90.4 48.1M87.3 53.0L89.1 55.3M85.4 59.5L88.1 62.7M81.1 67.2L82.6 70.7M79.0 69.8L79.8 73.0M74.5 74.2L75.1 78.0M66.8 79.1L66.4 82.9M61.4 81.2L60.2 84.1M51.6 82.8L49.7 86.5M44.4 82.5L41.8 85.5M37.8 80.9L34.7 83.3M34.6 79.7L31.5 81.5M27.8 75.9L24.9 76.5M23.9 72.8L20.7 73.3M18.5 66.6L14.6 66.7M13.7 56.8L10.3 55.7M12.3 50.2L8.3 48.6M12.1 43.3L9.5 41.2M12.4 40.9L10.2 38.6M13.9 34.4L12.2 31.7M18.1 26.0L16.2 22.4M23.4 19.7L22.8 16.3M27.8 16.1L27.5 12.2M30.8 14.2L31.0 10.5M42.0 10.0L43.3 6.3M48.0 9.2L49.9 6.3M51.6 9.2L53.8 5.9M59.4 10.3L62.3 7.6M69.5 14.3L72.6 13.0M72.4 16.2L76.3 14.6M79.0 22.2L82.1 22.1M81.1 24.8L84.2 25.0M86.2 34.9L90.2 35.9M86.9 37.2L90.8 38.3" stroke="#c78d58" stroke-width="1.1" stroke-linecap="round" opacity=".75"/>
+                  <circle cx="49" cy="43" r="19" fill="#f2cfa4"/>
+                  <circle cx="49" cy="43" r="19" fill="none" stroke="#d7a470" stroke-width="1.6"/>
+                  <path d="M40 35 q8-5 16 0 M38 44 q10-4 22 1" stroke="#dcae7c" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+                  <path d="M31 50 C 38 60, 60 62, 68 52 L 70 57 C 61 68, 37 66, 29 55 Z" fill="#6f7d3c"/>
+                  <path d="M50 62 C 40 52, 26 56, 30 66 C 33 73, 44 70, 50 64 Z" fill="#7b8a44" stroke="#4d5826" stroke-width="1.1" stroke-linejoin="round"/>
+                  <path d="M50 62 C 60 52, 75 55, 71 66 C 68 73, 56 70, 50 64 Z" fill="#7b8a44" stroke="#4d5826" stroke-width="1.1" stroke-linejoin="round"/>
+                  <path d="M36 60 q5 2 9 4 M64 60 q-5 2 -9 4" stroke="#5c6a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+                  <path d="M48 65 C 44 76, 40 88, 36 100 L 41 97 L 44 101 C 47 88, 50 76, 52 66 Z" fill="#6f7d3c" stroke="#4d5826" stroke-width="1.1" stroke-linejoin="round"/>
+                  <path d="M52 65 C 58 75, 64 85, 70 95 L 72 90 L 76 93 C 70 82, 62 72, 55 64 Z" fill="#7b8a44" stroke="#4d5826" stroke-width="1.1" stroke-linejoin="round"/>
+                  <ellipse cx="50.5" cy="64" rx="4.6" ry="4" fill="#5f6d31" stroke="#4d5826" stroke-width="1.1"/>
+                </g>
               </svg>
             </span>
             <div class="fase__texto"><strong>Fase 1: Ironía</strong><span>Ana huérfana y sometida al mundo adulto.</span></div>
@@ -239,21 +259,44 @@
           </li>
           <li class="fase">
             <span class="fase__icono">
-              <svg viewBox="0 0 60 80" role="img" aria-label="Vestido de cuadros en un gancho">
+              <svg viewBox="0 0 100 108" role="img" aria-label="Vestido de mangas abullonadas">
                 <defs>
-                  <pattern id="cuadros" width="8" height="8" patternUnits="userSpaceOnUse">
-                    <rect width="8" height="8" fill="#f4f1f7"/>
-                    <rect width="4" height="8" fill="#3b3470" opacity=".55"/>
-                    <rect width="8" height="4" fill="#3b3470" opacity=".55"/>
-                  </pattern>
+                  <filter id="acuarela-vestido" x="-5%" y="-5%" width="110%" height="110%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="6" result="ruido"/>
+                    <feDisplacementMap in="SourceGraphic" in2="ruido" scale="0.9" result="borde"/>
+                    <feTurbulence type="fractalNoise" baseFrequency="2" numOctaves="1" seed="2" result="grano"/>
+                    <feColorMatrix in="grano" type="matrix" values="0 0 0 0 0.45  0 0 0 0 0.43  0 0 0 0 0.4  0 0 0 0.2 -0.02" result="granoColor"/>
+                    <feComposite in="granoColor" in2="borde" operator="in" result="granoDentro"/>
+                    <feMerge><feMergeNode in="borde"/><feMergeNode in="granoDentro"/></feMerge>
+                  </filter>
                 </defs>
-                <path d="M30 3 c 3 0 4 3 2 5 l -2 2" stroke="#6b6b6b" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-                <path d="M30 10 L 18 18 M30 10 L 42 18" stroke="#6b6b6b" stroke-width="1.4" stroke-linecap="round"/>
-                <ellipse cx="13" cy="28" rx="6" ry="11" transform="rotate(18 13 28)" fill="#d2a045"/>
-                <ellipse cx="47" cy="28" rx="6" ry="11" transform="rotate(-18 47 28)" fill="#d2a045"/>
-                <path d="M9 38 l -2 8 M51 38 l 2 8" stroke="#d2a045" stroke-width="5" stroke-linecap="round"/>
-                <path d="M18 18 H42 L 40 40 L 52 76 H 8 L 20 40 Z" fill="url(#cuadros)" stroke="#2b2658" stroke-width="1.2" stroke-linejoin="round"/>
-                <path d="M20 40 H40" stroke="#2b2658" stroke-width="1.6"/>
+                <g filter="url(#acuarela-vestido)" stroke="#7a7367" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round">
+                  <path d="M37 46 C 30 62, 20 80, 13 94 L 87 94 C 80 80, 70 62, 63 46 Z" fill="#f3efe6"/>
+                  <path d="M56 47 C 62 62, 70 78, 76 92 L 87 94 C 80 80, 70 62, 63 46 Z" fill="#dcd5c7" stroke="none"/>
+                  <path d="M37 47 C 33 58, 27 72, 21 86 L 26 88 C 31 74, 36 60, 40 48 Z" fill="#e6e0d3" stroke="none"/>
+                  <path d="M44 50 C 40 66, 34 80, 30 93 M50 50 V 93 M56 50 C 60 66, 66 80, 70 93" fill="none" stroke="#c9c2b4"/>
+                  <path d="M11 93 q4.5 7 9 0 q4.5 7 9 0 q4.5 7 9 0 q4.5 7 9 0 q4.5 7 9 0 q4.5 7 9 0 q4.5 7 9 0 q4.5 7 9 0 q4.5 7 9 0 L 89 93 L 87 90 L 13 90 Z" fill="#ebe5d8"/>
+                  <path d="M24 34 C 20 42, 17 50, 15 56 L 21 58 C 24 51, 28 44, 31 38 Z" fill="#f3efe6"/>
+                  <path d="M76 34 C 80 42, 83 50, 85 56 L 79 58 C 76 51, 72 44, 69 38 Z" fill="#f3efe6"/>
+                  <path d="M12 56 q3 5 6 1 q3 4 6 0 L 21 55 L 14 53 Z" fill="#ebe5d8"/>
+                  <path d="M88 56 q-3 5 -6 1 q-3 4 -6 0 L 79 55 L 86 53 Z" fill="#ebe5d8"/>
+                  <path d="M38 20 H 62 L 64 46 H 36 Z" fill="#f3efe6"/>
+                  <path d="M56 30 L 62 30 L 64 46 L 57 46 Z" fill="#e2dccf" stroke="none"/>
+                  <ellipse cx="28" cy="28" rx="11" ry="10" fill="#f6f2ea"/>
+                  <ellipse cx="72" cy="28" rx="11" ry="10" fill="#f6f2ea"/>
+                  <path d="M28 30 a 9 8 0 0 0 9 -3 a 11 10 0 0 1 -9 11 Z M72 30 a 9 8 0 0 1 -9 -3 a 11 10 0 0 0 9 11 Z" fill="#dcd5c7" stroke="none"/>
+                  <path d="M22 24 q5 4 4 11 M34 23 q-4 5 -3 12 M78 24 q-5 4 -4 11 M66 23 q4 5 3 12" fill="none" stroke="#c9c2b4"/>
+                  <path d="M40 16 L 30 20 L 34 33 L 50 29 L 66 33 L 70 20 L 60 16 L 50 24 Z" fill="#fbf9f4"/>
+                  <path d="M44 12 H 56 V 17 L 50 22 L 44 17 Z" fill="#f3efe6"/>
+                  <g fill="#8ea2b2" stroke="#61778a">
+                    <path d="M50 25 l -6 -3 l 0 6 Z M50 25 l 6 -3 l 0 6 Z"/><circle cx="50" cy="25" r="1.6"/>
+                    <path d="M50 46 l -5 -2.5 l 0 5 Z M50 46 l 5 -2.5 l 0 5 Z"/><circle cx="50" cy="46" r="1.4"/>
+                    <path d="M24 92 l -4 -2 l 0 4 Z M24 92 l 4 -2 l 0 4 Z"/>
+                    <path d="M50 92 l -4 -2 l 0 4 Z M50 92 l 4 -2 l 0 4 Z"/>
+                    <path d="M76 92 l -4 -2 l 0 4 Z M76 92 l 4 -2 l 0 4 Z"/>
+                  </g>
+                  <path d="M36 46 H 64" fill="none" stroke="#8ea2b2" stroke-width="2"/>
+                </g>
               </svg>
             </span>
             <div class="fase__texto"><strong>Fase 4: Encogimiento</strong><span>La necesidad de encajar con la norma.</span></div>

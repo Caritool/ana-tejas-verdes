@@ -297,12 +297,13 @@ main > section, .pie {
 }
 
 .datos__autora { margin: 0; }
-/* La foto es un retrato rectangular con fondo claro; el borde se desvanece
-   hacia el papel para que flote como el recorte del mockup. */
+/* Recorte con fondo transparente; la foto termina en un corte recto a la
+   altura del busto, así que solo se desvanece hacia abajo. */
 .datos__autora img {
   width: min(100%, 320px); margin-inline: auto;
-  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 46%, #000 56%, transparent 100%);
-  mask-image: radial-gradient(ellipse 50% 50% at 50% 46%, #000 56%, transparent 100%);
+  filter: drop-shadow(0 16px 22px rgb(40 30 20 / 0.16));
+  -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 76%, transparent 100%);
 }
 
 .datos__texto h2 {
@@ -780,12 +781,20 @@ main > section, .pie {
     margin: 0; padding: 0 0 0 14px; border-left: 3px solid var(--sage);
   }
 
-  .flip__cara { grid-template-columns: 1fr; }
-  .flip__cara img { height: 200px; object-position: center 30%; }
+  /* En móvil la ilustración va entera, como una lámina montada sobre la
+     tarjeta; recortarla a una franja escondía justo lo que la hace bonita. */
+  .flip__cara { grid-template-columns: 1fr; align-content: center; padding-top: 18px; }
+  .flip__cara img {
+    width: min(64%, 230px); height: auto; justify-self: center;
+    object-fit: contain;
+    box-shadow: 0 10px 20px -12px rgb(40 30 20 / 0.45);
+  }
 
-  .timeline { --line-x: 30px; }
-  .fase, .fase:nth-child(n) { grid-template-columns: 60px 1fr; column-gap: 26px; }
-  .fase:nth-child(n) .fase__icono { grid-column: 1; grid-row: 1; justify-self: center; width: 52px; height: 52px; background: var(--paper); border-radius: 50%; position: relative; z-index: 1; }
+  /* La línea corre a la izquierda de los íconos en vez de atravesarlos: así
+     no hace falta taparla con un disco blanco que rompe el fondo de acuarela. */
+  .timeline { --line-x: 4px; padding-left: 22px; }
+  .fase, .fase:nth-child(n) { grid-template-columns: 56px 1fr; column-gap: 18px; }
+  .fase:nth-child(n) .fase__icono { grid-column: 1; grid-row: 1; justify-self: center; width: 52px; height: 52px; }
   .fase:nth-child(n) .fase__texto { grid-column: 2; grid-row: 1; text-align: left; }
   .js .fase:nth-child(n) .fase__texto { translate: 24px 0; }
   .js .fase.is-in .fase__texto { translate: none; }
