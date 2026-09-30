@@ -9,6 +9,8 @@ import { lineaTiempo } from "./modules/linea-tiempo.js";
 import { carrusel } from "./modules/carrusel.js";
 import { cursor } from "./modules/cursor.js";
 import { parallax, inclinar } from "./modules/profundidad.js";
+import { fondo } from "./modules/fondo.js";
+import { musica } from "./modules/musica.js";
 
 const entorno = { movimientoReducido, punteroFino };
 
@@ -28,6 +30,8 @@ tarjeta();
 lineaTiempo(entorno);
 carrusel({ alPasar: rafagaChica });
 cursor(campo, entorno);
+fondo(entorno);
+musica();
 
 // En táctil el parallax no aporta y en una columna empuja las imágenes sobre el texto.
 if (!movimientoReducido && punteroFino) {
