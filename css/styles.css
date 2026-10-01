@@ -565,7 +565,9 @@ main > section, .pie {
 }
 .slide::after { inset: 0; background: linear-gradient(rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.12) 62%, rgb(0 0 0 / 0.58)); }
 .slide__imagen { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; box-shadow: 0 10px 24px -10px rgb(0 0 0 / 0.55); }
-.slide__caption { margin: 14px 0 0; line-height: 1.45; font-size: 0.98rem; text-shadow: 0 1px 8px rgb(0 0 0 / 0.55); }
+/* Centrado en el espacio bajo el póster: la tarjeta de 1919 lo llena con el
+   botón y en las demás el texto queda al medio, sin franja vacía abajo. */
+.slide__caption { margin: auto 0; padding-top: 14px; line-height: 1.45; font-size: 0.98rem; text-shadow: 0 1px 8px rgb(0 0 0 / 0.55); }
 .slide__caption span { display: block; }
 
 .slide__medio { position: relative; width: 100%; }
@@ -578,9 +580,7 @@ main > section, .pie {
   box-shadow: 0 4px 10px -4px rgb(0 0 0 / 0.5);
 }
 .slide__video {
-  /* A media altura del póster: en el de 1919 cae sobre el chal, lejos de la
-     cara y del título. */
-  position: absolute; left: 50%; top: 56%; translate: -50% -50%;
+  margin-top: 10px;
   white-space: nowrap;
   display: inline-flex; align-items: center; gap: 7px;
   padding: 7px 16px 7px 12px;

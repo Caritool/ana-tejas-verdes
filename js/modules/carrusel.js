@@ -24,8 +24,8 @@ export function carrusel({ alPasar, alVerVideo }) {
     el.setAttribute("aria-roledescription", "diapositiva");
     el.setAttribute("aria-label", `${i + 1} de ${n}`);
 
-    // Póster, etiqueta y botón comparten un marco: así la tarjeta con video
-    // mide lo mismo que las demás y el mazo no deja franjas vacías.
+    // El póster y su etiqueta comparten un marco para que la etiqueta quede en
+    // la esquina de la imagen.
     const medio = document.createElement("div");
     medio.className = "slide__medio";
 
@@ -74,7 +74,7 @@ export function carrusel({ alPasar, alVerVideo }) {
       // Sin esto, el pointerup del botón contaría como un deslizamiento corto.
       ver.addEventListener("pointerdown", (e) => e.stopPropagation());
       ver.addEventListener("click", () => alVerVideo?.(a.video, ver));
-      medio.append(ver);
+      pie.append(ver);
     }
     escenario.append(el);
     return el;
