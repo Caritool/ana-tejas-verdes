@@ -69,8 +69,9 @@ export function carrusel({ alPasar, alVerVideo }) {
       const ver = document.createElement("button");
       ver.type = "button";
       ver.className = "slide__video";
-      ver.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><span>Ver la recreación</span>`;
-      ver.setAttribute("aria-label", `Ver fragmento: ${a.video.titulo}`);
+      ver.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><span></span>`;
+      ver.querySelector("span").textContent = a.video.boton ?? "Ver el tráiler";
+      ver.setAttribute("aria-label", `${a.video.boton ?? "Ver el tráiler"}: ${a.video.titulo}`);
       // Sin esto, el pointerup del botón contaría como un deslizamiento corto.
       ver.addEventListener("pointerdown", (e) => e.stopPropagation());
       ver.addEventListener("click", () => alVerVideo?.(a.video, ver));
