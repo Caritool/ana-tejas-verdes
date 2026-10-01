@@ -8,7 +8,7 @@ const HOJA = `<svg viewBox="0 0 40 24" aria-hidden="true"><path d="M3 12 C 10 1,
  * La posición de cada tarjeta se deriva solo del índice actual, así que no hay
  * estado de animación que se pueda desincronizar.
  */
-export function carrusel({ alPasar }) {
+export function carrusel({ alPasar, alVerVideo }) {
   const raiz = document.querySelector(".carrusel");
   const escenario = raiz.querySelector(".carrusel__escenario");
   const anterior = raiz.querySelector(".carrusel__flecha--prev");
@@ -24,6 +24,11 @@ export function carrusel({ alPasar }) {
     el.setAttribute("aria-roledescription", "diapositiva");
     el.setAttribute("aria-label", `${i + 1} de ${n}`);
 
+    // Póster, etiqueta y botón comparten un marco: así la tarjeta con video
+    // mide lo mismo que las demás y el mazo no deja franjas vacías.
+    const medio = document.createElement("div");
+    medio.className = "slide__medio";
+
     if (a.imagen) {
       // Absoluta: un url() relativo dentro de una variable se resolvería
       // contra css/, no contra la página.
@@ -34,15 +39,16 @@ export function carrusel({ alPasar }) {
       img.alt = a.alt ?? a.titulo;
       img.loading = "lazy";
       img.draggable = false;
-      el.append(img);
+      medio.append(img);
     } else {
       const ph = document.createElement("div");
       ph.className = "slide__placeholder";
       ph.innerHTML = `${HOJA}<b></b><i></i>`;
       ph.querySelector("b").textContent = a.anio;
       ph.querySelector("i").textContent = a.titulo;
-      el.append(ph);
+      medio.append(ph);
     }
+    el.append(medio);
 
     const pie = document.createElement("p");
     pie.className = "slide__caption";
@@ -52,6 +58,24 @@ export function carrusel({ alPasar }) {
       pie.append(s);
     }
     el.append(pie);
+
+    if (a.nota) {
+      const sello = document.createElement("span");
+      sello.className = "slide__sello";
+      sello.textContent = a.nota;
+      medio.append(sello);
+    }
+    if (a.video) {
+      const ver = document.createElement("button");
+      ver.type = "button";
+      ver.className = "slide__video";
+      ver.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><span>Ver la recreación</span>`;
+      ver.setAttribute("aria-label", `Ver fragmento: ${a.video.titulo}`);
+      // Sin esto, el pointerup del botón contaría como un deslizamiento corto.
+      ver.addEventListener("pointerdown", (e) => e.stopPropagation());
+      ver.addEventListener("click", () => alVerVideo?.(a.video, ver));
+      medio.append(ver);
+    }
     escenario.append(el);
     return el;
   });
@@ -68,6 +92,8 @@ export function carrusel({ alPasar }) {
       const d = (i - actual + n) % n;
       t.dataset.pos = posicion(d);
       t.setAttribute("aria-hidden", String(d !== 0));
+      // Las tarjetas de atrás no deben recibir foco ni clics (el botón de video).
+      t.inert = d !== 0;
     });
     const a = adaptaciones[actual];
     contador.textContent = n > 1 ? `${actual + 1} / ${n}` : "";

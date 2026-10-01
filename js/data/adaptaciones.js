@@ -2,7 +2,8 @@
  * Adaptaciones del carrusel de "Ana hoy", en el orden en que se muestran.
  *
  * `imagen` y `alt` son opcionales: sin imagen, la tarjeta se dibuja con el año
- * y el título.
+ * y el título. `video` ({ id de YouTube, titulo }) agrega un botón que lo abre
+ * en un visor, y `nota` una etiqueta corta sobre la esquina del póster.
  */
 export const adaptaciones = [
   {
@@ -11,6 +12,9 @@ export const adaptaciones = [
     titulo: "Ana de las Tejas Verdes",
     imagen: "assets/img/adaptacion-1919.webp",
     alt: "Póster de la película muda de 1919, con Mary Miles Minter como Ana, envuelta en un chal junto a una ventana",
+    // No sobrevive ninguna copia de la película; el video es una reconstrucción.
+    nota: "Película perdida",
+    video: { id: "M1MaN1x-Vho", titulo: "Anne of Green Gables (1919): fragmento de la recreación de Jack y Linda Hutton" },
   },
   {
     formato: "Animación",

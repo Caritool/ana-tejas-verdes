@@ -66,6 +66,10 @@ export function musica() {
 
   boton.addEventListener("click", () => (sonando ? apagar() : encender()));
 
+  // Mientras corre un video la música se aparta y vuelve al cerrarlo, solo si
+  // estaba sonando antes.
+  let retomarTrasVideo = false;
+
   document.addEventListener("visibilitychange", () => {
     if (document.hidden && sonando) {
       reanudar = true;
@@ -77,4 +81,15 @@ export function musica() {
   });
 
   pintar();
+
+  return {
+    silenciar() {
+      retomarTrasVideo = sonando;
+      if (sonando) apagar();
+    },
+    reanudar() {
+      if (retomarTrasVideo) encender();
+      retomarTrasVideo = false;
+    },
+  };
 }

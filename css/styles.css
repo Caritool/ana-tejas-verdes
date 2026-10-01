@@ -568,6 +568,59 @@ main > section, .pie {
 .slide__caption { margin: 14px 0 0; line-height: 1.45; font-size: 0.98rem; text-shadow: 0 1px 8px rgb(0 0 0 / 0.55); }
 .slide__caption span { display: block; }
 
+.slide__medio { position: relative; width: 100%; }
+.slide__sello {
+  position: absolute; top: 10px; left: -6px;
+  padding: 3px 10px 3px 12px;
+  background: var(--cream); color: var(--ink);
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: 0 999px 999px 0;
+  box-shadow: 0 4px 10px -4px rgb(0 0 0 / 0.5);
+}
+.slide__video {
+  /* A media altura del póster: en el de 1919 cae sobre el chal, lejos de la
+     cara y del título. */
+  position: absolute; left: 50%; top: 56%; translate: -50% -50%;
+  white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 16px 7px 12px;
+  border: 0; border-radius: 999px;
+  background: linear-gradient(90deg, var(--leaf-ochre), var(--leaf-orange) 55%, var(--leaf-rust));
+  color: #fff; font-weight: 800; font-size: 0.9rem;
+  box-shadow: 0 6px 16px -8px rgb(0 0 0 / 0.6);
+  transition: transform .35s var(--ease-spring), filter .2s;
+}
+.slide__video svg { width: 16px; height: 16px; fill: currentColor; }
+.slide__video:hover { transform: translateY(-2px) scale(1.04); filter: brightness(1.06); }
+.slide__video:focus-visible { outline-color: #fff; }
+
+/* Visor de video */
+.visor {
+  width: min(960px, 100vw - 32px);
+  max-width: none; max-height: none;
+  padding: 0; border: 0;
+  background: transparent; color: #fff;
+  overflow: visible;
+}
+.visor::backdrop { background: rgb(20 14 8 / 0.82); backdrop-filter: blur(3px); }
+.visor__caja { display: grid; gap: 10px; }
+.visor__cabecera { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.visor__titulo { margin: 0; font-size: 0.95rem; font-weight: 700; line-height: 1.35; }
+.visor__cabecera form { margin: 0; }
+.visor__cerrar {
+  width: 40px; height: 40px; flex: none;
+  border: 1.5px solid rgb(255 255 255 / 0.7); border-radius: 50%;
+  background: rgb(255 255 255 / 0.1); color: #fff; font-size: 1rem;
+  transition: background .2s, transform .35s var(--ease-spring);
+}
+.visor__cerrar:hover { background: var(--leaf-orange); transform: rotate(90deg); }
+.visor__marco { aspect-ratio: 16 / 9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.7); }
+.visor__marco iframe { display: block; width: 100%; height: 100%; border: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .visor[open] { animation: visor-entra .45s var(--ease-out); }
+}
+@keyframes visor-entra { from { opacity: 0; translate: 0 18px; scale: .97; } }
+
 .slide__placeholder {
   width: 100%; aspect-ratio: 2 / 3;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
